@@ -157,7 +157,7 @@
         min-height: 64px;
         display: flex;
         flex-direction: row;
-        align-items: stretch;
+        align-items: center;
         gap: 12px;
         background: var(--surface);
         border: 1px solid var(--surface-edge);
@@ -178,10 +178,10 @@
       .chapter:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
       .rail {
         flex: 0 0 auto;
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 8px;
       }
       .badge {
         flex: 0 0 auto;
@@ -202,9 +202,14 @@
         letter-spacing: var(--ls-heading);
       }
       .rail-line {
+        /* バッジの真下に添えるだけの装飾。レイアウトには参加させず、
+           バッジの中心がカードの縦中心と一致するようにする。 */
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 50%;
+        transform: translateX(-50%);
         width: 2px;
-        flex: 1 1 auto;
-        min-height: 8px;
+        height: 10px;
         border-radius: 2px;
         background: var(--rule);
         opacity: .55;
